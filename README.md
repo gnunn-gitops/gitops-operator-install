@@ -13,6 +13,6 @@ To install the operator, use the command:
 ./setup.sh <cluster-name>
 ```
 
-Where `cluster-name` is the name of the cluster you want to install. This name must match an overlay in the `openshift-gitops/overlays` folder.
+Where `cluster-name` is the name of the cluster you want to install. This name must match an overlay in the `openshift-gitops/overlays` folder, you do not specify a name it will use the `default` overlay.
 
 The reason why we need overlay specific cluster configuration is that I prefer to use an SSO instance to manage the argocd authentication and this requires a cluster specific issuer URL, see the `home` overlay for an example.
