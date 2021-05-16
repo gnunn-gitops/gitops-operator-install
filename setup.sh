@@ -24,8 +24,6 @@ do
   sleep 5;
 done
 
-#oc apply -k ./openshift-gitops
-
 echo "Waiting for all pods to be created"
 deployments=(cluster kam openshift-gitops-applicationset-controller openshift-gitops-redis openshift-gitops-repo-server openshift-gitops-server)
 for i in "${deployments[@]}";
