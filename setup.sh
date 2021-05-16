@@ -3,7 +3,7 @@
 LANG=C
 SLEEP_SECONDS=45
 
-OVERLAY=default
+OVERLAY=dex
 
 if [ $# -gt 0 ]; then
     OVERLAY=$1
@@ -15,7 +15,7 @@ exit 0;
 echo ""
 echo "Installing GitOps Operator."
 
-oc apply -k https://github.com/redhat-canada-gitops/catalog/openshift-gitops-operator/overlays/stable-4.7
+kustomize build openshift-gitops-operator/overlays/dex | oc apply -f -
 
 echo "Pause $SLEEP_SECONDS seconds for the creation of the gitops-operator..."
 sleep $SLEEP_SECONDS

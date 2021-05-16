@@ -1,0 +1,17 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+bases:
+- github.com/redhat-canada-gitops/catalog/openshift-gitops-operator/overlays/stable-4.7
+
+patches:
+- patch: |-
+    - op: add
+      path: /spec/config
+      value:
+        env:
+          - name: DISABLE_DEX
+            value: 'false'
+  target:
+    kind: Subscription
+    name: openshift-gitops-operator
