@@ -24,26 +24,26 @@ do
   sleep 5;
 done
 
-oc apply -k ./openshift-gitops
+#oc apply -k ./openshift-gitops
 
 echo "Waiting for all pods to be created"
-deployments (cluster kam openshift-gitops-applicationset-controller openshift-gitops-redis openshift-gitops-repo-server openshift-gitops-server)
-for i in "${my_array[@]}";
+deployments=(cluster kam openshift-gitops-applicationset-controller openshift-gitops-redis openshift-gitops-repo-server openshift-gitops-server)
+for i in "${deployments[@]}";
 do
   echo "Waiting for deployment $i";
-  oc rollout status deployment $i
+  oc rollout status deployment $i -n openshift-gitops
 done
 
 echo "Apply overlay to override default instance"
-kustomize build | oc apply -f -
+kustomize build openshift-gitops/overlays/${OVERLAY} | oc apply -f -
 
 sleep 10
 echo "Waiting for all pods to redeploy"
-deployments (cluster kam openshift-gitops-applicationset-controller openshift-gitops-redis openshift-gitops-repo-server openshift-gitops-server)
-for i in "${my_array[@]}";
+deployments=(cluster kam openshift-gitops-applicationset-controller openshift-gitops-redis openshift-gitops-repo-server openshift-gitops-server)
+for i in "${deployments[@]}";
 do
   echo "Waiting for deployment $i";
-  oc rollout status deployment $i
+  oc rollout status deployment $i -n openshift-gitops
 done
 
 echo "GitOps Operator ready"

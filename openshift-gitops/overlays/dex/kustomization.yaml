@@ -8,9 +8,7 @@ patches:
 - patch: |-
     - op: add
       path: /spec/dex
-      value: |
-        image: quay.io/redhat-cop/dex
-        version: v2.22.0-openshift
+      value:
         openShiftOAuth: true
   target:
     kind: ArgoCD
