@@ -25,7 +25,7 @@ do
 done
 
 echo "Waiting for deployments to start"
-until oc get deployment cluster
+until oc get deployment cluster -n openshift-gitops
 do
   sleep 5;
 done
