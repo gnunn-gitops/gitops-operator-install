@@ -7,7 +7,7 @@ OVERLAY=dex
 
 if [ $# -gt 0 ]; then
     OVERLAY=$1
-    echo "Using overlay $1"
+    echo "No overlay specified, using overlay $1"
 fi
 
 exit 0;
