@@ -40,6 +40,28 @@ spec:
         hs.status = "Progressing"
         hs.message = "Waiting for certificate"
         return hs
+    Job:
+      health.lua: |
+        hs = {}
+        if obj.status ~= nil then
+          if obj.status.active ~= nil then
+            if obj.status.active == "1" then
+              hs.status = "Progressing"
+              hs.message = obj.status.active .. " active job(s)."
+              return hs
+            end
+          end
+          if obj.status.succeeded ~= nil then
+            if obj.status.succeeded == 1 then
+              hs.status = "Healthy"
+              hs.message = "Job completed successfully."
+              return hs
+            end
+          end
+        end
+        hs.status = "Progressing"
+        hs.message = "Waiting for Job to complete."
+        return hs
   resourceExclusions: |
     - apiGroups:
       - tekton.dev
