@@ -10,8 +10,6 @@ if [ $# -gt 0 ]; then
     echo "No overlay specified, using overlay $1"
 fi
 
-exit 0;
-
 echo ""
 echo "Installing GitOps Operator."
 
