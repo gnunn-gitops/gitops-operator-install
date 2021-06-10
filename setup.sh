@@ -10,6 +10,11 @@ if [ $# -gt 0 ]; then
     echo "No overlay specified, using overlay $1"
 fi
 
+if [ ! -d "openshift-gitops/overlays/${OVERLAY}" ]; then
+    echo "Overlay ${OVERLAY} does not exist in path openshift-gitops/overlays/${OVERLAY}"
+    exit 1
+fi
+
 echo ""
 echo "Installing GitOps Operator."
 
