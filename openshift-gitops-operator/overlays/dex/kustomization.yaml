@@ -14,7 +14,7 @@ patches:
             value: 'false'
     - op: replace
       path: /spec/startingCSV
-      value: openshift-gitops-operator.v1.1.1
+      value: openshift-gitops-operator.v1.1.2
   target:
     kind: Subscription
     name: openshift-gitops-operator
