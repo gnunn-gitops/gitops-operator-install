@@ -43,19 +43,6 @@ spec:
         hs.status = "Progressing"
         hs.message = "Waiting for Central to deploy."
         return hs
-    operators.coreos.com/Subscription:
-      health.lua: |
-        hs = {}
-        if obj.status ~= nil then
-          if obj.status.currentCSV ~=nill and obj.status.state == "AtLatestKnown" then
-            hs.status = "Healthy"
-            hs.message = "Subcription installed"
-            return hs
-          end
-        end
-        hs.status = "Progressing"
-        hs.message = "Waiting for Subscription to complete."
-        return hs
     route.openshift.io/Route:
       ignoreDifferences: |
         jsonPointers:
