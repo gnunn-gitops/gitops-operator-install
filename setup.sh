@@ -1,7 +1,7 @@
 #!/bin/bash
 
 LANG=C
-SLEEP_SECONDS=45
+SLEEP_SECONDS=10
 
 OVERLAY=dex
 
