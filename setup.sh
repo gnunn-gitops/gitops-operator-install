@@ -23,6 +23,13 @@ kustomize build openshift-gitops-operator/overlays/dex | oc apply -f -
 echo "Pause $SLEEP_SECONDS seconds for the creation of the gitops-operator..."
 sleep $SLEEP_SECONDS
 
+echo "Waiting for operator to start"
+until oc get deployment gitops-operator -n openshift-operators
+do
+  sleep 5;
+done
+
+
 # echo "Waiting for openshift-gitops namespace to be created"
 # until oc get ns openshift-gitops
 # do
