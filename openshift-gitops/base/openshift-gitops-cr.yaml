@@ -7,6 +7,7 @@ spec:
   image: quay.io/gnunn/argocd-rhel8
   version: v1.2.0
   applicationInstanceLabelKey: argocd.argoproj.io/instance
+  applicationSet: {}
   server:
     insecure: true
     route:
