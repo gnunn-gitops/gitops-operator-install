@@ -8,6 +8,22 @@ spec:
   version: v1.2.0
   applicationInstanceLabelKey: argocd.argoproj.io/instance
   applicationSet: {}
+  controller:
+    resources:
+      limits:
+        cpu: '2'
+        memory: 3Gi
+      requests:
+        cpu: 250m
+        memory: 2Gi
+  repo:
+    resources:
+      limits:
+        cpu: '1'
+        memory: 1Gi
+      requests:
+        cpu: 250m
+        memory: 512Mi
   server:
     insecure: true
     route:
