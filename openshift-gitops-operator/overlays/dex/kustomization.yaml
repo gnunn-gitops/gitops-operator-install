@@ -12,9 +12,6 @@ patches:
         env:
           - name: DISABLE_DEX
             value: 'false'
-    - op: replace
-      path: /spec/startingCSV
-      value: openshift-gitops-operator.v1.2.0
   target:
     kind: Subscription
     name: openshift-gitops-operator

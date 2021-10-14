@@ -24,7 +24,7 @@ echo "Pause $SLEEP_SECONDS seconds for the creation of the gitops-operator..."
 sleep $SLEEP_SECONDS
 
 echo "Waiting for operator to start"
-until oc get deployment gitops-operator -n openshift-operators
+until oc get deployment gitops-operator-controller-manager -n openshift-operators
 do
   sleep 5;
 done
