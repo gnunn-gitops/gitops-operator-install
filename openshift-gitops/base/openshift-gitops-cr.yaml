@@ -18,10 +18,18 @@ spec:
     resources:
       limits:
         cpu: '1'
-        memory: 1Gi
+        memory: 1.5Gi
       requests:
         cpu: 250m
+        memory: 768Mi
+  redis:
+    resources:
+      limits:
+        cpu: 500m
         memory: 512Mi
+      requests:
+        cpu: 250m
+        memory: 256Mi
   server:
     insecure: true
     route:
