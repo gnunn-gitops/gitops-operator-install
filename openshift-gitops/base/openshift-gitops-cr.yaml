@@ -6,6 +6,7 @@ metadata:
 spec:
   applicationInstanceLabelKey: argocd.argoproj.io/instance
   applicationSet: {}
+  kustomizeBuildOptions: "--enable-helm"
   controller:
     resources:
       limits:
