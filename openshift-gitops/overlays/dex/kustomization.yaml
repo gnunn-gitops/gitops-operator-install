@@ -7,7 +7,7 @@ bases:
 patches:
 - patch: |-
     - op: add
-      path: /spec/dex
+      path: /spec/sso/dex
       value:
         openShiftOAuth: true
   target:
