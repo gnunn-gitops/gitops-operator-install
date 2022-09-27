@@ -7,6 +7,10 @@ spec:
   applicationInstanceLabelKey: argocd.argoproj.io/instance
   applicationSet: {}
   kustomizeBuildOptions: "--enable-helm"
+  sso:
+    dex:
+      openShiftOAuth: true
+    provider: dex  
   controller:
     resources:
       limits:
