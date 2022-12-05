@@ -4,13 +4,13 @@ metadata:
   name: openshift-gitops
   namespace: openshift-gitops
 spec:
-  applicationInstanceLabelKey: argocd.argoproj.io/instance
+  resourceTrackingMethod: annotation
   applicationSet: {}
   kustomizeBuildOptions: "--enable-helm"
   sso:
     dex:
       openShiftOAuth: true
-    provider: dex  
+    provider: dex
   controller:
     resources:
       limits:
@@ -193,7 +193,7 @@ spec:
         end
         hs.status = "Progressing"
         hs.message = "Waiting for certificate"
-        return hs        
+        return hs
   resourceExclusions: |
     - apiGroups:
       - tekton.dev
