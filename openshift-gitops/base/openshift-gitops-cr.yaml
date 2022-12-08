@@ -42,7 +42,7 @@ spec:
     route:
       enabled: true
       tls:
-        termination: reencrypt
+        termination: edge
         insecureEdgeTerminationPolicy: Redirect
   resourceCustomizations: |
     argoproj.io/Application:
